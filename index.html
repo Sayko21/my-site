@@ -3,18 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="موقع مخصص لروايات وأحاديث محمد وآل محمد، يقدم محتوى ديني بتصميم احترافي." />
+  <meta name="description" content="موقع مخصص لروايات وأحاديث محمد وآل محمد بتصميم احترافي." />
   <title>روايات ومحمد وآل محمد</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap" />
   <style>
-    /* إعادة ضبط التنسيقات */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
-    /* الخط والجسم */
     body {
       font-family: 'Amiri', serif;
       line-height: 1.8;
@@ -22,7 +20,6 @@
       color: #333;
       transition: background 0.5s ease, color 0.3s ease;
       min-height: 100vh;
-      position: relative;
     }
 
     body.dark {
@@ -30,29 +27,18 @@
       color: #e0e0e0;
     }
 
-    /* الحاوية العامة */
     .container {
       max-width: 1200px;
       margin: 80px auto 2rem;
       padding: 0 1.5rem;
     }
 
-    /* شريط التنقل العلوي */
     .navbar {
       position: fixed;
       top: 0;
       left: 0;
       right: 0;
-      background: #fff;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-      z-index: 1000;
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    body.dark .navbar {
+      background: #fff    body.dark .navbar {
       background: #1a1a1a;
       box-shadow: 0 2px 5px rgba(255, 255, 255, 0.1);
     }
@@ -67,7 +53,6 @@
       color: #66aaff;
     }
 
-    /* التبويبات */
     .tabs {
       display: flex;
       justify-content: center;
@@ -81,7 +66,6 @@
 
     body.dark .tabs {
       background: #222;
-      box-shadow: 0 4px 10px rgba(255, 255, 255, 0.05);
     }
 
     .tab {
@@ -91,25 +75,17 @@
       font-size: 1.2rem;
       border-radius: 5px;
       transition: all 0.3s ease;
-      position: relative;
     }
 
-    .tab:hover {
+    .tab:hover, .tab.active {
       background: #007BFF;
       color: #fff;
     }
 
-    .tab.active {
-      background: #007BFF;
-      color: #fff;
-    }
-
-    body.dark .tab:hover,
-    body.dark .tab.active {
+    body.dark .tab:hover, body.dark .tab.active {
       background: #66aaff;
     }
 
-    /* المحتوى */
     .tab-content {
       display: none;
       opacity: 0;
@@ -121,7 +97,6 @@
       opacity: 1;
     }
 
-    /* الروايات */
     .rwaya {
       background: #fff;
       padding: 1.5rem;
@@ -133,7 +108,6 @@
 
     body.dark .rwaya {
       background: #2a2a2a;
-      box-shadow: 0 4px 15px rgba(255, 255, 255, 0.05);
     }
 
     .rwaya:hover {
@@ -149,25 +123,6 @@
       color: #66aaff;
     }
 
-    .rwaya p {
-      font-size: 1.1rem;
-    }
-
-    .rwaya a {
-      color: #007BFF;
-      text-decoration: none;
-      transition: color 0.3s;
-    }
-
-    body.dark .rwaya a {
-      color: #66aaff;
-    }
-
-    .rwaya a:hover {
-      text-decoration: underline;
-    }
-
-    /* زر الوضع الليلي */
     #dark-mode-toggle {
       position: fixed;
       top: 1rem;
@@ -182,7 +137,6 @@
       align-items: center;
       justify-content: center;
       transition: all 0.3s ease;
-      z-index: 1001;
     }
 
     body.dark #dark-mode-toggle {
@@ -190,11 +144,6 @@
       border-color: #66aaff;
     }
 
-    #dark-mode-toggle span {
-      font-size: 1.2rem;
-    }
-
-    /* زر العودة إلى الأعلى */
     #scroll-to-top {
       position: fixed;
       bottom: 2rem;
@@ -210,23 +159,12 @@
       align-items: center;
       justify-content: center;
       font-size: 1.5rem;
-      transition: all 0.3s ease;
-      z-index: 1000;
-    }
-
-    #scroll-to-top:hover {
-      background: #0056b3;
     }
 
     body.dark #scroll-to-top {
       background: #66aaff;
     }
 
-    body.dark #scroll-to-top:hover {
-      background: #4a8ed1;
-    }
-
-    /* الاقتباس */
     q {
       quotes: "“" "”" "‘" "’";
       display: block;
@@ -239,90 +177,81 @@
       color: #aaa;
     }
 
-    /* استجابة */
     @media (max-width: 768px) {
-      .container {
-        margin-top: 100px;
-        padding: 0 1rem;
-      }
-
-      .tabs {
-        flex-direction: column;
-        gap: 0.5rem;
-      }
-
-      .tab {
-        font-size: 1rem;
-        padding: 0.6rem 1.5rem;
-      }
-
-      .navbar {
-        flex-direction: column;
-        gap: 0.5rem;
-      }
-    }
-
-    @media (max-width: 500px) {
-      .rwaya {
-        padding: 1rem;
-      }
-
-      .rwaya h2 {
-        font-size: 1.2rem;
-      }
-
-      .rwaya p {
-        font-size: 1rem;
-      }
+      .container { margin-top: 100px; padding: 0 1rem; }
+      .tabs { flex-direction: column; gap: 0.5rem; }
+      .tab { font-size: 1rem; padding: 0.6rem 1.5rem; }
+      .navbar { flex-direction: column; gap: 0.5rem; }
     }
   </style>
 </head>
 <body>
-  <!-- شريط التنقل -->
   <nav class="navbar">
     <div class="logo">روايات ومحمد وآل محمد</div>
-    <div class="tabs" role="tablist" aria-label="أقسام الموقع">
-      <div class="tab active" role="tab" tabindex="0" aria-selected="true" aria-controls="tab-quran" id="tab-quran-btn">قرآن محمد وآل محمد</div>
-      <div class="tab" role="tab" tabindex="-1" aria-selected="false" aria-controls="tab-rwayat" id="tab-rwayat-btn">روايات محمد وآل محمد</div>
-      <div class="tab" role="tab" tabindex="-1" aria-selected="false" aria-controls="tab-ahadith" id="tab-ahadith-btn">أحاديث</div>
+    <div class="tabs" role="tablist">
+      <div class="tab active" role="tab" tabindex="0" aria-controls="tab-quran" id="tab-quran-btn">قرآن</div>
+      <div class="tab" role="tab" tabindex="-1" aria-controls="tab-rwayat" id="tab-rwayat-btn">روايات</div>
+      <div class="tab" role="tab" tabindex="-1" aria-controls="tab-ahadith" id="tab-ahadith-btn">أحاديث</div>
     </div>
   </nav>
 
-  <!-- زر الوضع الليلي -->
   <button id="dark-mode-toggle" aria-label="تبديل الوضع الليلي"><span>◐</span></button>
-
-  <!-- زر العودة إلى الأعلى -->
   <button id="scroll-to-top" aria-label="العودة إلى الأعلى">↑</button>
 
-  <!-- الحاوية الرئيسية -->
   <div class="container">
+    <!-- القرآن -->
     <section id="tab-quran" class="tab-content active" role="tabpanel" aria-labelledby="tab-quran-btn">
       <h1>قرآن محمد وآل محمد</h1>
-      <p>هذا القسم مخصص للقرآن الكريم - سيتم إضافة المحتوى لاحقًا.</p>
-    </section>
-
-    <section id="tab-rwayat" class="tab-content" role="tabpanel" aria-labelledby="tab-rwayat-btn" tabindex="0">
-      <h1>الروايات المختارة</h1>
-      <!-- محتوى الروايات (تم الاحتفاظ به كما هو مع تنسيق أفضل) -->
       <section class="rwaya">
-        <h2>رواية 1: عن الإمام العالم موسى بن جعفر الكاظم عليه السلام</h2>
-        <p>
-          قال: إن الله تبارك وتعالى خلق نور محمد صلى الله عليه وآله من نور اخترعه من نور عظمته وجلاله...
-          <!-- النص الكامل محفوظ كما هو -->
-        </p>
+        <h2>سورة البقرة، الآية 255</h2>
+        <p><q>اللَّهُ لَا إِلَهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ...</q></p>
       </section>
-      <!-- باقي الروايات بنفس التنسيق -->
-      <!-- يمكنك إضافة باقي الروايات هنا بنفس الهيكلية -->
+      <section class="rwaya">
+        <h2>سورة الإخلاص، الآية 1-4</h2>
+        <p><q>قُلْ هُوَ اللَّهُ أَحَدٌ...</q></p>
+      </section>
     </section>
 
-    <section id="tab-ahadith" class="tab-content" role="tabpanel" aria-labelledby="tab-ahadith-btn" tabindex="0">
+    <!-- الروايات -->
+    <section id="tab-rwayat" class="tab-content" role="tabpanel" aria-labelledby="tab-rwayat-btn">
+      <h1>روايات محمد وآل محمد</h1>
+      <section class="rwaya">
+        <h2>رواية 1: الإمام الكاظم (ع)</h2>
+        <p>إن الله تبارك وتعالى خلق نور محمد صلى الله عليه وآله من نور عظمته...</p>
+      </section>
+      <section class="rwaya">
+        <h2>رواية 2: الإمام الكاظم (ع)</h2>
+        <p>طوبى لشيعتنا المتمسكين بحبلنا في غيبة قائمنا...</p>
+      </section>
+      <section class="rwaya">
+        <h2>رواية 3: الإمام الصادق (ع)</h2>
+        <p>شيعتنا خُلقوا من فاضل طينتنا، وعُجنوا بماء ولايتنا.</p>
+      </section>
+    </section>
+
+    <!-- الأحاديث -->
+    <section id="tab-ahadith" class="tab-content" role="tabpanel" aria-labelledby="tab-ahadith-btn">
       <h1>أحاديث محمد وآل محمد</h1>
-      <p>هذا القسم مخصص للأحاديث - سيتم إضافة المحتوى لاحقًا.</p>
+      <section class="rwaya">
+        <h2>حديث 1: رسول الله (ص)</h2>
+        <p><q>أنا مدينة العلم وعلي بابها.</q></p>
+      </section>
+      <section class="rwaya">
+        <h2>حديث 2: الإمام علي (ع)</h2>
+        <p><q>الناس نيام فإذا ماتوا انتبهوا.</q></p>
+      </section>
+      <section class="rwaya">
+        <h2>حديث 3: الإمام الحسن (ع)</h2>
+        <p><q>من عرف نفسه فقد عرف ربه.</q></p>
+      </section>
+      <section class="rwaya">
+        <h2>حديث 4: الإمام الحسين (ع)</h2>
+        <p><q>إن قومي قوم يرون الموت سعادة والحياة مع الظالمين مذلة.</q></p>
+      </section>
     </section>
   </div>
 
   <script>
-    // إدارة التبويبات
     const tabs = document.querySelectorAll('.tab');
     const contents = document.querySelectorAll('.tab-content');
 
@@ -339,11 +268,8 @@
       contents.forEach(c => {
         if (c.id === target.getAttribute('aria-controls')) {
           c.classList.add('active');
-          c.setAttribute('tabindex', '0');
-          c.focus();
         } else {
           c.classList.remove('active');
-          c.setAttribute('tabindex', '-1');
         }
       });
     }
@@ -358,19 +284,16 @@
       });
     });
 
-    // تبديل الوضع الليلي
     const toggleBtn = document.getElementById('dark-mode-toggle');
     toggleBtn.addEventListener('click', () => {
       document.body.classList.toggle('dark');
       localStorage.setItem('theme', document.body.classList.contains('dark') ? 'dark' : 'light');
     });
 
-    // تحميل الوضع المحفوظ
     if (localStorage.getItem('theme') === 'dark') {
       document.body.classList.add('dark');
     }
 
-    // زر العودة إلى الأعلى
     const scrollToTopBtn = document.getElementById('scroll-to-top');
     window.addEventListener('scroll', () => {
       scrollToTopBtn.style.display = window.scrollY > 300 ? 'flex' : 'none';
