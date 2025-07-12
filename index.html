@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>روايات محمد وآل محمد</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css"
+    />
+    <style>
+      body {
+        font-family: 'Amiri', serif;
+        line-height: 1.8;
+      }
+      .reactions {
+        display: flex;
+        gap: 1rem;
+        margin-top: 1rem;
+      }
+      .reactions button {
+        font-size: 1.2rem;
+        cursor: pointer;
+      }
+      .comment-box {
+        margin-top: 2rem;
+      }
+      .owner-only {
+        display: none;
+      }
+      .view-count {
+        font-size: 0.9rem;
+        color: #777;
+        margin-top: -1rem;
+      }
+    </style>
+    <script>
+      // محاكاة أن الزائر هو "المالك"
+      const isOwner = true;
+
+      window.onload = () => {
+        if (isOwner) {
+          document.querySelectorAll(".owner-only").forEach((el) => {
+            el.style.display = "block";
+          });
+        }
+      };
+    </script>
+  </head>
+  <body>
+    <nav class="container-fluid">
+      <ul>
+        <li><strong>روايات محمد وآل محمد</strong></li>
+      </ul>
+      <ul>
+        <li><a href="#">الرئيسية</a></li>
+        <li><a href="#">عن الموقع</a></li>
+        <li><a href="#" role="button">اتصل بنا</a></li>
+      </ul>
+    </nav>
+
+    <main class="container">
+      <div class="grid">
+        <section>
+          <hgroup>
+            <h2>عنوان الرواية الأولى</h2>
+            <h3>الرواية المختارة لهذا اليوم</h3>
+          </hgroup>
+          <p>
+            هنا نص الرواية المقدسة عن النبي محمد أو أحد الأئمة من آل البيت. يتم
+            عرضها للجمهور ويمكنك تخصيص المحتوى لاحقًا.
+          </p>
+
+          <figure>
+            <img src="path/to/your-image.jpg" alt="صورة للرواية" />
+            <figcaption><a href="#" target="_blank">رابط مصدر الصورة</a></figcaption>
+          </figure>
+
+          <p class="view-count owner-only">👁️ عدد المشاهدات: 153</p>
+
+          <div class="reactions">
+            <button>👍 أعجبني</button>
+            <button>❤️ قلب</button>
+            <button>🌿 سبحان الله</button>
+            <button>✨ مؤثر</button>
+          </div>
+
+          <div class="comment-box">
+            <h3>💬 التعليقات</h3>
+            <form>
+              <textarea
+                rows="3"
+                placeholder="اكتب تعليقك هنا..."
+                aria-label="اكتب تعليقك"
+                required
+              ></textarea>
+              <button type="submit" onclick="event.preventDefault()">إرسال</button>
+            </form>
+          </div>
+
+          <div class="owner-only" style="margin-top: 2rem;">
+            <hr />
+            <h3>✍️ أدوات المالك</h3>
+            <button>➕ نشر رواية جديدة</button>
+            <button>⚙️ تعديل المحتوى</button>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <section aria-label="Subscribe example">
+      <div class="container">
+        <article>
+          <hgroup>
+            <h2>اشترك للتنبيهات</h2>
+            <h3>احصل على إشعار عند نشر رواية جديدة</h3>
+          </hgroup>
+          <form class="grid">
+            <input
+              type="text"
+              id="firstname"
+              name="firstname"
+              placeholder="الاسم الأول"
+              aria-label="الاسم الأول"
+              required
+            />
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="البريد الإلكتروني"
+              aria-label="البريد الإلكتروني"
+              required
+            />
+            <button type="submit" onclick="event.preventDefault()">اشترك الآن</button>
+          </form>
+        </article>
+      </div>
+    </section>
+
+    <footer class="container">
+      <small>
+        <a href="#">سياسة الخصوصية</a> • <a href="#">حقوق النشر © 2025</a>
+      </small>
+    </footer>
+  </body>
+</html>
