@@ -3,12 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="موقع مخصص لروايات وأحاديث محمد وآل محمد (ص) - موسوعة شاملة للحديث النبوي الشريف" />
-  <meta name="keywords" content="أحاديث, روايات, محمد, آل محمد, حديث نبوي, السنة النبوية">
-  <meta name="theme-color" content="#8b4513">
-  <title>موسوعة روايات محمد وآل محمد (ص)</title>
+  <meta name="description" content="موقع مخصص لروايات وأحاديث محمد وآل محمد بتصميم روائي كلاسيكي." />
+  <title>روايات ومحمد وآل محمد</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <style>
     /* إعادة ضبط التنسيقات */
     * {
@@ -19,110 +16,54 @@
 
     /* تنسيق الجسم */
     body {
-      font-family: 'Amiri', Arial, sans-serif;
-      background: linear-gradient(135deg, #f5f5dc 0%, #e6d9c1 100%);
+      font-family: 'Amiri', serif;
+      background: linear-gradient(135deg, #f5f5dc 0%, #d2b48c 100%); /* الوضع العادي: بيج وبني */
       color: #333;
       min-height: 100vh;
       position: relative;
-      transition: all 0.5s ease;
-      line-height: 1.8;
+      transition: background 0.5s ease, color 0.3s ease;
     }
 
     body.dark-mode {
-      background: linear-gradient(135deg, #121212 0%, #2a241b 100%);
-      color: #e8e6e3;
+      background: linear-gradient(135deg, #1c1c1c 0%, #3e2c1e 100%); /* الوضع الليلي: أسود مع بني */
+      color: #e0e0e0;
     }
 
     /* الحاوية الرئيسية */
     .container {
       max-width: 1200px;
-      margin: 70px auto 30px;
+      margin: 50px auto;
       padding: 0 1.5rem;
       text-align: center;
     }
 
     /* العنوان */
-    .header {
-      position: relative;
-      margin-bottom: 2.5rem;
-      padding: 1rem;
-      border-bottom: 2px solid #8b4513;
-    }
-
-    body.dark-mode .header {
-      border-color: #d2b48c;
-    }
-
     h1 {
-      font-size: 2.3rem;
-      color: #8b4513;
-      margin-bottom: 0.5rem;
-      text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+      font-size: 2.5rem;
+      color: #8b4513; /* بني غامق في الوضع العادي */
+      margin-bottom: 2rem;
     }
 
     body.dark-mode h1 {
-      color: #d2b48c;
-      text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-    }
-
-    .subtitle {
-      font-size: 1.1rem;
-      color: #666;
-    }
-
-    body.dark-mode .subtitle {
-      color: #aaa;
+      color: #d2b48c; /* بني فاتح في الوضع الليلي */
     }
 
     /* زر التبديل بين الوضعين */
-    .mode-toggle-container {
+    #mode-toggle {
       position: fixed;
       top: 1rem;
       left: 1rem;
-      display: flex;
-      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      background: #8b4513; /* بني غامق */
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
       z-index: 1001;
     }
 
-    #mode-toggle {
-      padding: 0.5rem;
-      background: #8b4513;
-      color: #fff;
-      border: none;
-      cursor: pointer;
-      border-radius: 50%;
-      width: 40px;
-      height: 40px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-      transition: all 0.3s ease;
-    }
-
     body.dark-mode #mode-toggle {
-      background: #d2b48c;
-      color: #1c1c1c;
-    }
-
-    #font-size-toggle {
-      padding: 0.5rem;
-      background: #8b4513;
-      color: #fff;
-      border: none;
-      cursor: pointer;
-      border-radius: 50%;
-      width: 40px;
-      height: 40px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-      transition: all 0.3s ease;
-    }
-
-    body.dark-mode #font-size-toggle {
-      background: #d2b48c;
+      background: #d2b48c; /* بني فاتح في الوضع الليلي */
       color: #1c1c1c;
     }
 
@@ -134,7 +75,7 @@
       transform: translateY(-50%);
       background: #8b4513;
       color: #fff;
-      padding: 1rem 0.7rem;
+      padding: 1rem;
       cursor: pointer;
       border-top-left-radius: 5px;
       border-bottom-left-radius: 5px;
@@ -142,8 +83,6 @@
       text-orientation: mixed;
       font-size: 1.2rem;
       z-index: 1001;
-      box-shadow: -2px 0 5px rgba(0,0,0,0.1);
-      transition: all 0.3s ease;
     }
 
     body.dark-mode .sidebar-toggle {
@@ -151,85 +90,62 @@
       color: #1c1c1c;
     }
 
-    .sidebar-toggle:hover {
-      padding-right: 1rem;
-    }
-
     /* اللوحة الجانبية */
     .sidebar {
       position: fixed;
       top: 0;
-      right: -320px;
-      width: 320px;
+      right: -300px;
+      width: 300px;
       height: 100%;
       background: #fff;
-      box-shadow: -2px 0 15px rgba(0, 0, 0, 0.1);
+      box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
       z-index: 1002;
-      transition: right 0.4s cubic-bezier(0.22, 1, 0.36, 1);
-      padding: 1.5rem;
-      overflow-y: auto;
+      transition: right 0.3s ease;
+      padding: 2rem;
     }
 
     body.dark-mode .sidebar {
-      background: #2a2a2a;
-      box-shadow: -2px 0 15px rgba(0, 0, 0, 0.3);
+      background: #2a2a2a; /* خلفية داكنة للوضع الليلي */
     }
 
     .sidebar.open {
       right: 0;
     }
 
-    .sidebar-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 1.5rem;
-      padding-bottom: 1rem;
-      border-bottom: 1px solid #eee;
-    }
-
-    body.dark-mode .sidebar-header {
-      border-color: #444;
-    }
-
     .sidebar .close-btn {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
       font-size: 1.5rem;
       cursor: pointer;
       color: #8b4513;
-      transition: transform 0.3s ease;
     }
 
     body.dark-mode .sidebar .close-btn {
       color: #d2b48c;
     }
 
-    .sidebar .close-btn:hover {
-      transform: rotate(90deg);
-    }
-
     .sidebar .tabs {
       display: flex;
       flex-direction: column;
-      gap: 0.8rem;
+      gap: 1rem;
+      margin-top: 3rem;
     }
 
     .sidebar .tab {
       padding: 1rem;
       cursor: pointer;
       font-weight: bold;
-      font-size: 1.1rem;
-      border-radius: 8px;
-      background: #f5f5dc;
+      font-size: 1.2rem;
+      border-radius: 5px;
+      background: #f5f5dc; /* بيج فاتح */
       color: #8b4513;
-      text-align: right;
-      transition: all 0.3s ease;
-      display: flex;
-      align-items: center;
-      gap: 0.8rem;
+      text-align: center;
+      transition: background 0.3s ease, color 0.3s ease;
     }
 
     body.dark-mode .sidebar .tab {
-      background: #3e2c1e;
+      background: #3e2c1e; /* بني داكن للوضع الليلي */
       color: #d2b48c;
     }
 
@@ -237,7 +153,6 @@
     .sidebar .tab.active {
       background: #8b4513;
       color: #fff;
-      transform: translateX(-5px);
     }
 
     body.dark-mode .sidebar .tab:hover,
@@ -246,91 +161,16 @@
       color: #1c1c1c;
     }
 
-    .sidebar .tab i {
-      font-size: 1.2rem;
-    }
-
     /* المحتوى */
     .tab-content {
       display: none;
       opacity: 0;
       transition: opacity 0.5s ease;
-      text-align: right;
-      padding: 1rem;
-      background: rgba(255, 255, 255, 0.8);
-      border-radius: 10px;
-      margin-bottom: 2rem;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-    }
-
-    body.dark-mode .tab-content {
-      background: rgba(42, 42, 42, 0.8);
-      box-shadow: 0 3px 10px rgba(0,0,0,0.3);
     }
 
     .tab-content.active {
       display: block;
       opacity: 1;
-      animation: fadeIn 0.5s ease;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .hadith-card {
-      background: #fff;
-      border-radius: 8px;
-      padding: 1.5rem;
-      margin-bottom: 1.5rem;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      border-right: 4px solid #8b4513;
-      transition: all 0.3s ease;
-    }
-
-    body.dark-mode .hadith-card {
-      background: #333;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-      border-color: #d2b48c;
-    }
-
-    .hadith-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 5px 15px rgba(0,0,0,0.15);
-    }
-
-    .hadith-title {
-      color: #8b4513;
-      font-size: 1.3rem;
-      margin-bottom: 1rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    body.dark-mode .hadith-title {
-      color: #d2b48c;
-    }
-
-    .hadith-text {
-      font-size: 1.1rem;
-      margin-bottom: 1rem;
-      text-align: justify;
-    }
-
-    .hadith-meta {
-      display: flex;
-      justify-content: space-between;
-      color: #666;
-      font-size: 0.9rem;
-      border-top: 1px dashed #ddd;
-      padding-top: 0.8rem;
-    }
-
-    body.dark-mode .hadith-meta {
-      color: #aaa;
-      border-color: #444;
     }
 
     /* زر العودة إلى الأعلى */
@@ -348,10 +188,8 @@
       display: none;
       align-items: center;
       justify-content: center;
-      font-size: 1.3rem;
+      font-size: 1.5rem;
       z-index: 1000;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.2);
-      transition: all 0.3s ease;
     }
 
     body.dark-mode #scroll-to-top {
@@ -359,462 +197,36 @@
       color: #1c1c1c;
     }
 
-    #scroll-to-top:hover {
-      transform: scale(1.1);
-    }
-
     /* شريط البحث */
-    .search-container {
-      margin-bottom: 2.5rem;
-      position: sticky;
-      top: 70px;
-      z-index: 100;
-      background: inherit;
-      padding: 1rem 0;
-    }
-
     .search-bar {
-      position: relative;
-      max-width: 600px;
-      margin: 0 auto;
+      margin-bottom: 2rem;
+      text-align: center;
     }
 
     .search-bar input {
-      padding: 0.8rem 1.5rem 0.8rem 3rem;
-      font-size: 1.1rem;
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
       border: 2px solid #8b4513;
-      border-radius: 30px;
-      width: 100%;
-      background: rgba(255,255,255,0.9);
-      transition: all 0.3s ease;
+      border-radius: 5px;
+      width: 300px;
+      max-width: 100%;
     }
 
     body.dark-mode .search-bar input {
-      background: rgba(42,42,42,0.9);
-      color: #e8e6e3;
+      background: #2a2a2a;
+      color: #e0e0e0;
       border-color: #d2b48c;
-    }
-
-    .search-bar input:focus {
-      outline: none;
-      box-shadow: 0 0 0 3px rgba(139, 69, 19, 0.3);
-      width: 105%;
-    }
-
-    body.dark-mode .search-bar input:focus {
-      box-shadow: 0 0 0 3px rgba(210, 180, 140, 0.3);
-    }
-
-    .search-icon {
-      position: absolute;
-      left: 1.2rem;
-      top: 50%;
-      transform: translateY(-50%);
-      color: #8b4513;
-    }
-
-    body.dark-mode .search-icon {
-      color: #d2b48c;
-    }
-
-    /* تنبيهات */
-    .alert {
-      padding: 1rem;
-      border-radius: 5px;
-      margin-bottom: 1.5rem;
-      display: none;
-    }
-
-    .alert-success {
-      background: #d4edda;
-      color: #155724;
-      border-left: 5px solid #28a745;
-    }
-
-    body.dark-mode .alert-success {
-      background: #1e3a24;
-      color: #d4edda;
-      border-color: #28a745;
-    }
-
-    /* تذييل الصفحة */
-    .footer {
-      text-align: center;
-      padding: 1.5rem;
-      margin-top: 3rem;
-      border-top: 1px solid #ddd;
-      color: #666;
-      font-size: 0.9rem;
-    }
-
-    body.dark-mode .footer {
-      border-color: #444;
-      color: #aaa;
-    }
-
-    /* نظام التصنيفات */
-    .categories {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.8rem;
-      justify-content: center;
-      margin-bottom: 2rem;
-    }
-
-    .category {
-      padding: 0.6rem 1.2rem;
-      background: #f0e6d2;
-      border-radius: 20px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      font-size: 0.9rem;
-      border: 1px solid #ddd;
-    }
-
-    body.dark-mode .category {
-      background: #3a3328;
-      border-color: #555;
-    }
-
-    .category:hover,
-    .category.active {
-      background: #8b4513;
-      color: #fff;
-      transform: translateY(-2px);
-    }
-
-    body.dark-mode .category:hover,
-    body.dark-mode .category.active {
-      background: #d2b48c;
-      color: #1c1c1c;
-    }
-
-    /* نظام التقييم */
-    .rating {
-      display: flex;
-      gap: 0.3rem;
-      margin-top: 0.5rem;
-      justify-content: center;
-    }
-
-    .rating i {
-      color: #ffc107;
-      cursor: pointer;
-      transition: all 0.2s ease;
-    }
-
-    .rating i:hover {
-      transform: scale(1.2);
-    }
-
-    /* نظام المشاركة */
-    .share-buttons {
-      display: flex;
-      gap: 0.8rem;
-      margin-top: 1.5rem;
-      justify-content: center;
-    }
-
-    .share-btn {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-
-    .share-btn:hover {
-      transform: translateY(-3px) scale(1.1);
-    }
-
-    .facebook { background: #3b5998; }
-    .twitter { background: #1da1f2; }
-    .whatsapp { background: #25d366; }
-    .telegram { background: #0088cc; }
-
-    /* تأثيرات التحميل */
-    .loader {
-      display: none;
-      border: 4px solid #f3f3f3;
-      border-top: 4px solid #8b4513;
-      border-radius: 50%;
-      width: 40px;
-      height: 40px;
-      animation: spin 1s linear infinite;
-      margin: 2rem auto;
-    }
-
-    body.dark-mode .loader {
-      border-color: #444;
-      border-top-color: #d2b48c;
-    }
-
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
     }
 
     /* استجابة التصميم */
     @media (max-width: 768px) {
       .container {
         padding: 0 1rem;
-        margin-top: 60px;
-      }
-
-      h1 {
-        font-size: 1.8rem;
       }
 
       .sidebar {
-        width: 85%;
-        right: -85%;
-      }
-
-      .hadith-card {
-        padding: 1rem;
-      }
-
-      .search-container {
-        top: 60px;
-      }
-
-      .search-bar input:focus {
         width: 100%;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .header {
-        padding: 0.5rem;
+        right: -100%;
       }
 
-      h1 {
-        font-size: 1.5rem;
-      }
-
-      .subtitle {
-        font-size: 0.9rem;
-      }
-
-      .sidebar .tab {
-        padding: 0.8rem;
-        font-size: 1rem;
-      }
-
-      .hadith-title {
-        font-size: 1.1rem;
-      }
-
-      .hadith-text {
-        font-size: 1rem;
-      }
-    }
-
-    /* تأثيرات خاصة */
-    .fancy-border {
-      position: relative;
-    }
-
-    .fancy-border::after {
-      content: "";
-      position: absolute;
-      bottom: -10px;
-      left: 0;
-      width: 100%;
-      height: 3px;
-      background: linear-gradient(90deg, #8b4513, #d2b48c, #8b4513);
-      border-radius: 3px;
-    }
-
-    body.dark-mode .fancy-border::after {
-      background: linear-gradient(90deg, #d2b48c, #8b4513, #d2b48c);
-    }
-
-    /* طباعة */
-    @media print {
-      .sidebar-toggle, #mode-toggle, #font-size-toggle, #scroll-to-top {
-        display: none !important;
-      }
-
-      body {
-        background: none !important;
-        color: #000 !important;
-      }
-
-      .hadith-card {
-        box-shadow: none !important;
-        border: 1px solid #ddd !important;
-        page-break-inside: avoid;
-      }
-    }
-  </style>
-</head>
-<body>
-  <!-- زر التبديل بين الوضعين -->
-  <div class="mode-toggle-container">
-    <button id="mode-toggle" title="تبديل الوضع الليلي">
-      <i class="fas fa-moon"></i>
-    </button>
-    <button id="font-size-toggle" title="تبديل حجم الخط">
-      <i class="fas fa-text-height"></i>
-    </button>
-  </div>
-
-  <!-- الشخوط (الزر الجانبي) -->
-  <button class="sidebar-toggle">
-    <i class="fas fa-bars"></i> القائمة
-  </button>
-
-  <!-- اللوحة الجانبية -->
-  <div class="sidebar">
-    <div class="sidebar-header">
-      <h3>فهرس الروايات</h3>
-      <span class="close-btn"><i class="fas fa-times"></i></span>
-    </div>
-    <div class="tabs">
-      <div class="tab active" data-target="#home-tab">
-        <i class="fas fa-home"></i> الرئيسية
-      </div>
-      <div class="tab" data-target="#hadith-tab">
-        <i class="fas fa-book-open"></i> الأحاديث النبوية
-      </div>
-      <div class="tab" data-target="#stories-tab">
-        <i class="fas fa-scroll"></i> قصص آل البيت
-      </div>
-      <div class="tab" data-target="#sunnah-tab">
-        <i class="fas fa-hands-praying"></i> السنن اليومية
-      </div>
-      <div class="tab" data-target="#dua-tab">
-        <i class="fas fa-hands"></i> أدعية وأذكار
-      </div>
-      <div class="tab" data-target="#favorites-tab">
-        <i class="fas fa-heart"></i> المفضلة
-      </div>
-      <div class="tab" data-target="#about-tab">
-        <i class="fas fa-info-circle"></i> عن الموقع
-      </div>
-    </div>
-  </div>
-
-  <!-- الحاوية الرئيسية -->
-  <div class="container">
-    <!-- تنبيهات -->
-    <div class="alert alert-success" id="welcome-alert">
-      مرحباً بك في موسوعة روايات محمد وآل محمد (ص). يمكنك تغيير حجم الخط والوضع الليلي من الأزرار أعلى اليسار.
-    </div>
-
-    <!-- العنوان -->
-    <div class="header fancy-border">
-      <h1><i class="fas fa-book-quran"></i> موسوعة روايات محمد وآل محمد (ص)</h1>
-      <p class="subtitle">"مَا يَنْطِقُ عَنِ الْهَوَىٰ ﴿٣﴾ إِنْ هُوَ إِلَّا وَحْيٌ يُوحَىٰ ﴿٤﴾" - النجم</p>
-    </div>
-
-    <!-- شريط البحث -->
-    <div class="search-container">
-      <div class="search-bar">
-        <i class="fas fa-search search-icon"></i>
-        <input type="text" id="search-input" placeholder="ابحث في الروايات والأحاديث..." />
-      </div>
-    </div>
-
-    <!-- نظام التصنيفات -->
-    <div class="categories">
-      <div class="category active">الكل</div>
-      <div class="category">الصحيحة</div>
-      <div class="category">الأخلاق</div>
-      <div class="category">العبادات</div>
-      <div class="category">المناقب</div>
-      <div class="category">القصص</div>
-    </div>
-
-    <!-- المحتوى -->
-    <div id="home-tab" class="tab-content active">
-      <h2><i class="fas fa-star"></i> حديث اليوم</h2>
-      <div class="hadith-card">
-        <h3 class="hadith-title"><i class="fas fa-quote-right"></i> حديث عن الصدق</h3>
-        <p class="hadith-text">
-          عن عبد الله بن مسعود رضي الله عنه قال: قال رسول الله صلى الله عليه وسلم: 
-          "عليكم بالصدق فإن الصدق يهدي إلى البر، وإن البر يهدي إلى الجنة، وما يزال الرجل يصدق ويتحرى الصدق حتى يكتب عند الله صديقاً. وإياكم والكذب فإن الكذب يهدي إلى الفجور، وإن الفجور يهدي إلى النار، وما يزال الرجل يكذب ويتحرى الكذب حتى يكتب عند الله كذاباً."
-        </p>
-        <div class="hadith-meta">
-          <span><i class="fas fa-book"></i> صحيح البخاري (6094)</span>
-          <span><i class="fas fa-calendar"></i> 15 رجب 1444</span>
-        </div>
-        <div class="rating">
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star-half-alt"></i>
-        </div>
-      </div>
-
-      <h2><i class="fas fa-fire"></i> أشهر الروايات</h2>
-      <div class="hadith-card">
-        <h3 class="hadith-title"><i class="fas fa-quote-right"></i> حديث الثقلين</h3>
-        <p class="hadith-text">
-          قال رسول الله صلى الله عليه وآله وسلم: 
-          "إني تارك فيكم الثقلين: كتاب الله وعترتي أهل بيتي، ما إن تمسكتم بهما لن تضلوا بعدي أبداً، فإنهما لن يفترقا حتى يردا علي الحوض."
-        </p>
-        <div class="hadith-meta">
-          <span><i class="fas fa-book"></i> صحيح مسلم (2408)</span>
-          <span><i class="fas fa-heart"></i> 1245 إعجاب</span>
-        </div>
-        <div class="rating">
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-        </div>
-      </div>
-    </div>
-
-    <div id="hadith-tab" class="tab-content">
-      <h2><i class="fas fa-book-open"></i> الأحاديث النبوية</h2>
-      <div class="loader" id="hadith-loader"></div>
-      <div id="hadith-content"></div>
-    </div>
-
-    <div id="stories-tab" class="tab-content">
-      <h2><i class="fas fa-scroll"></i> قصص آل البيت</h2>
-      <p>سيتم عرض قصص آل البيت هنا...</p>
-    </div>
-
-    <div id="sunnah-tab" class="tab-content">
-      <h2><i class="fas fa-hands-praying"></i> السنن اليومية</h2>
-      <p>سيتم عرض السنن اليومية هنا...</p>
-    </div>
-
-    <div id="dua-tab" class="tab-content">
-      <h2><i class="fas fa-hands"></i> أدعية وأذكار</h2>
-      <p>سيتم عرض الأدعية والأذكار هنا...</p>
-    </div>
-
-    <div id="favorites-tab" class="tab-content">
-      <h2><i class="fas fa-heart"></i> المفضلة</h2>
-      <p>سيتم عرض الروايات المفضلة هنا...</p>
-    </div>
-
-    <div id="about-tab" class="tab-content">
-      <h2><i class="fas fa-info-circle"></i> عن الموقع</h2>
-      <div class="hadith-card">
-        <h3 class="hadith-title"><i class="fas fa-mosque"></i> نبذة عن الموسوعة</h3>
-        <p class="hadith-text">
-          هذا الموقع هو جهد متواضع لجمع روايات وأحاديث النبي محمد صلى الله عليه وآله وسلم وآل بيته الأطهار، 
-          بهدف تسهيل الوصول إلى السنة النبوية الشريفة ونشرها بين المسلمين. 
-          نحرص على تقديم المحتوى بدقة مع ذكر المصادر والمراجع الموثوقة.
-        </p>
-        <p class="hadith-text">
-          يمكنك البحث في الأحاديث والروايات، تصنيفها حسب المواضيع، حفظ المفضلة لديك، 
-          ومشاركة الأحاديث مع الآخرين عبر وسائل التواصل الاجتماعي.
-        </p>
-        <div class="share-buttons">
-          <div class="share-btn facebook"><i class="fab fa-facebook-f"></i></div>
-          <div class="share-btn twitter"><i class="fab fa-twitter"></i></div>
-          <div class="share-btn whatsapp"><i class="fab fa-whatsapp"></i></div>
-          <div class="share-btn telegram"><i cla
+    
